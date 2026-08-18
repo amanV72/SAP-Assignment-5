@@ -37,6 +37,7 @@ service EmployeeService {
     // Upload Validation Errors
     // ============================================================
 
+    @Capabilities.FilterRestrictions.Filterable : true
     entity UploadErrors as projection on db.UploadErrors;
 
 
@@ -55,6 +56,7 @@ service EmployeeService {
     // ============================================================
 
     type UploadResult {
+        uploadId       : UUID;
         totalRecords   : Integer;
         successRecords : Integer;
         failedRecords  : Integer;

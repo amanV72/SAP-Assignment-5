@@ -87,6 +87,18 @@
     border-radius: 8px;
 }
 
+.employeeManagerFilter {
+    border-radius: 8px;
+}
+
+.employeeFilterLeft {
+    gap: 12px;
+}
+
+.employeeFilterRefreshBtn {
+    flex-shrink: 0;
+}
+
 .employeeCountText {
     color: #5b6875;
     font-size: 0.85rem;
@@ -206,6 +218,117 @@
 }
 
 
+/* ============================================================
+   UPLOAD RESULT DIALOG
+   ============================================================ */
+
+.uploadResultBody {
+    padding: 8px 4px 4px;
+    gap: 0;
+}
+
+.uploadResultHeader {
+    gap: 10px;
+    padding: 0 0 16px 0;
+    border-bottom: 1px solid #e1e5e9;
+    margin-bottom: 16px;
+}
+
+.uploadResultIcon {
+    flex-shrink: 0;
+}
+
+.uploadResultTitle {
+    font-size: 1.1rem !important;
+    font-weight: 700;
+}
+
+/* ── Summary pills ── */
+
+.uploadSummaryBar {
+    background: #f7f8fa;
+    border: 1px solid #e1e5e9;
+    border-radius: 10px;
+    padding: 14px 8px;
+    margin-bottom: 20px;
+}
+
+.uploadSummaryPill {
+    flex: 1;
+    align-items: center;
+    padding: 0 8px;
+}
+
+.uploadSummaryPill + .uploadSummaryPill {
+    border-left: 1px solid #dde1e5;
+}
+
+.uploadPillNumber {
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.uploadPillLabel {
+    font-size: 0.75rem;
+    color: #57606a;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-top: 2px;
+}
+
+.pillTotal   .uploadPillNumber { color: #1d2d3e; }
+.pillSuccess .uploadPillNumber { color: #188918; }
+.pillFailed  .uploadPillNumber { color: #bb0000; }
+
+/* ── Error table ── */
+
+.uploadErrorHeading {
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #57606a;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.uploadErrorScroll {
+    border: 1px solid #e1e5e9;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.uploadErrorTable {
+    width: 100%;
+}
+
+.uploadErrorTable .sapMListTblHeaderCell {
+    background: #f8f9fa;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.uploadErrColHdr {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #354a5f;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.uploadErrCellMono {
+    font-family: "Cascadia Code", "Consolas", monospace;
+    font-size: 0.82rem;
+    color: #1d2d3e;
+}
+
+.uploadErrCell {
+    font-size: 0.85rem;
+    color: #bb0000;
+}
+
+
 @media (max-width: 600px) {
 
     .employeePageContainer {
@@ -224,3 +347,145 @@
         border-radius: 8px;
     }
 }
+
+
+/* ============================================================
+   UPLOAD HISTORY PAGE
+   ============================================================ */
+
+.uploadHistoryPage {
+    background: #f5f7fa;
+}
+
+.uploadHistoryPageContainer {
+    padding: 28px 32px;
+    box-sizing: border-box;
+}
+
+/* ── Header ── */
+
+.uploadHistoryPageHeader {
+    margin-bottom: 24px;
+}
+
+.uploadHistoryTitleGroup {
+    gap: 4px;
+}
+
+.uploadHistoryBackBtn {
+    margin-right: 4px;
+    color: #0a6ed1;
+}
+
+.uploadHistoryTitleBlock {
+    gap: 2px;
+}
+
+.uploadHistoryPageTitle {
+    color: #1d2d3e;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.uploadHistoryPageSubtitle {
+    color: #5b6875;
+    font-size: 0.95rem;
+    margin-top: 4px;
+}
+
+/* History button on ListView */
+.employeeHistoryButton {
+    border-radius: 8px;
+}
+
+/* ── Stat cards ── */
+
+.uploadHistoryStatsRow {
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.uploadHistoryStatCard {
+    flex: 1;
+    align-items: center;
+    padding: 20px 16px;
+    background: #ffffff;
+    border: 1px solid #e1e5e9;
+    border-radius: 12px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    border-top: 4px solid #e1e5e9;
+}
+
+.uploadHistoryStatCard:hover {
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+}
+
+.uploadHistoryStatCardTotal   { border-top-color: #0a6ed1; }
+.uploadHistoryStatCardSuccess { border-top-color: #188918; }
+.uploadHistoryStatCardPartial { border-top-color: #e9730c; }
+.uploadHistoryStatCardFailed  { border-top-color: #bb0000; }
+
+.uploadHistoryStatNumber {
+    font-size: 2.4rem;
+    font-weight: 700;
+    line-height: 1.1;
+}
+
+.uploadHistoryStatCardTotal   .uploadHistoryStatNumber { color: #0a6ed1; }
+.uploadHistoryStatCardSuccess .uploadHistoryStatNumber { color: #188918; }
+.uploadHistoryStatCardPartial .uploadHistoryStatNumber { color: #e9730c; }
+.uploadHistoryStatCardFailed  .uploadHistoryStatNumber { color: #bb0000; }
+
+.uploadHistoryStatLabel {
+    font-size: 0.73rem;
+    color: #57606a;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-weight: 600;
+    margin-top: 6px;
+}
+
+/* ── Table ── */
+
+.uploadHistoryTable {
+    background: #ffffff;
+}
+
+.uploadHistoryRow {
+    min-height: 54px;
+}
+
+.uploadHistoryFileCell {
+    gap: 4px;
+}
+
+.uploadHistoryFileIcon {
+    margin-bottom: 2px;
+}
+
+.uploadHistoryFileName {
+    color: #1d2d3e;
+    font-size: 0.88rem;
+    font-weight: 600;
+}
+
+.uploadHistoryCountTotal .sapMObjectNumberText {
+    color: #1d2d3e;
+    font-weight: 600;
+}
+
+.uploadHistoryCountSuccess .sapMObjectNumberText {
+    font-weight: 600;
+}
+
+.uploadHistoryCountFailed .sapMObjectNumberText {
+    color: #bb0000;
+    font-weight: 600;
+}
+
+.uploadHistoryStatusBadge {
+    font-size: 0.8rem;
+    font-weight: 700;
+    border-radius: 6px;
+}
+

@@ -1,0 +1,234 @@
+<mvc:View
+    controllerName="com.employee.employeemasterui.controller.UploadHistory"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+
+    <Page
+        id="uploadHistoryPage"
+        showHeader="false"
+        class="uploadHistoryPage">
+
+        <content>
+
+            <VBox
+                width="100%"
+                class="uploadHistoryPageContainer">
+
+
+                <!-- ================================================= -->
+                <!-- PAGE HEADER                                       -->
+                <!-- ================================================= -->
+
+                <HBox
+                    width="100%"
+                    justifyContent="SpaceBetween"
+                    alignItems="Start"
+                    class="uploadHistoryPageHeader">
+
+                    <!-- Left: back + title block -->
+                    <HBox alignItems="Center" class="uploadHistoryTitleGroup">
+
+                        <Button
+                            icon="sap-icon://nav-back"
+                            type="Transparent"
+                            press=".onNavBack"
+                            tooltip="Back to Employee Master"
+                            class="uploadHistoryBackBtn"/>
+
+                        <VBox class="uploadHistoryTitleBlock">
+
+                            <Title
+                                text="Upload History"
+                                level="H1"
+                                class="uploadHistoryPageTitle"/>
+
+                            <Text
+                                id="uploadHistorySubtitle"
+                                text="All upload sessions"
+                                class="uploadHistoryPageSubtitle"/>
+
+                        </VBox>
+
+                    </HBox>
+
+                    <!-- Right: refresh -->
+                    <Button
+                        text="Refresh"
+                        icon="sap-icon://refresh"
+                        type="Transparent"
+                        press=".onRefresh"
+                        class="employeeRefreshButton"/>
+
+                </HBox>
+
+
+                <!-- ================================================= -->
+                <!-- STATS CARDS                                       -->
+                <!-- ================================================= -->
+
+                <HBox
+                    width="100%"
+                    justifyContent="SpaceBetween"
+                    class="uploadHistoryStatsRow">
+
+                    <VBox class="uploadHistoryStatCard uploadHistoryStatCardTotal">
+                        <Text
+                            id="statTotalUploads"
+                            text="0"
+                            class="uploadHistoryStatNumber"/>
+                        <Text
+                            text="Total Uploads"
+                            class="uploadHistoryStatLabel"/>
+                    </VBox>
+
+                    <VBox class="uploadHistoryStatCard uploadHistoryStatCardSuccess">
+                        <Text
+                            id="statSuccess"
+                            text="0"
+                            class="uploadHistoryStatNumber"/>
+                        <Text
+                            text="Success"
+                            class="uploadHistoryStatLabel"/>
+                    </VBox>
+
+                    <VBox class="uploadHistoryStatCard uploadHistoryStatCardPartial">
+                        <Text
+                            id="statPartial"
+                            text="0"
+                            class="uploadHistoryStatNumber"/>
+                        <Text
+                            text="Partial"
+                            class="uploadHistoryStatLabel"/>
+                    </VBox>
+
+                    <VBox class="uploadHistoryStatCard uploadHistoryStatCardFailed">
+                        <Text
+                            id="statFailed"
+                            text="0"
+                            class="uploadHistoryStatNumber"/>
+                        <Text
+                            text="Failed"
+                            class="uploadHistoryStatLabel"/>
+                    </VBox>
+
+                </HBox>
+
+
+                <!-- ================================================= -->
+                <!-- HISTORY TABLE                                     -->
+                <!-- ================================================= -->
+
+                <VBox
+                    width="100%"
+                    class="employeeTableCard">
+
+                    <Table
+                        id="historyTable"
+                        width="100%"
+                        inset="false"
+                        growing="true"
+                        growingThreshold="10"
+                        showSeparators="Inner"
+                        items="{history>/logs}"
+                        noDataText="No upload history found."
+                        class="uploadHistoryTable">
+
+                        <columns>
+
+                            <Column width="24%" hAlign="Begin">
+                                <Text text="File Name"   class="employeeColumnHeader"/>
+                            </Column>
+
+                            <Column width="13%" hAlign="Begin">
+                                <Text text="Uploaded By" class="employeeColumnHeader"/>
+                            </Column>
+
+                            <Column width="20%" hAlign="Begin">
+                                <Text text="Upload Date" class="employeeColumnHeader"/>
+                            </Column>
+
+                            <Column width="8%"  hAlign="End">
+                                <Text text="Total"       class="employeeColumnHeader"/>
+                            </Column>
+
+                            <Column width="9%"  hAlign="End">
+                                <Text text="Success"     class="employeeColumnHeader"/>
+                            </Column>
+
+                            <Column width="9%"  hAlign="End">
+                                <Text text="Failed"      class="employeeColumnHeader"/>
+                            </Column>
+
+                            <Column width="17%" hAlign="Begin">
+                                <Text text="Status"      class="employeeColumnHeader"/>
+                            </Column>
+
+                        </columns>
+
+                        <items>
+
+                            <ColumnListItem class="uploadHistoryRow">
+
+                                <!-- FILE NAME -->
+                                <VBox justifyContent="Center" class="uploadHistoryFileCell">
+                                    <core:Icon
+                                        src="sap-icon://excel-attachment"
+                                        size="0.85rem"
+                                        color="#188918"
+                                        class="uploadHistoryFileIcon"/>
+                                    <Text
+                                        text="{history>fileName}"
+                                        wrapping="false"
+                                        class="uploadHistoryFileName"/>
+                                </VBox>
+
+                                <!-- UPLOADED BY -->
+                                <Text
+                                    text="{history>uploadedBy}"
+                                    class="employeeCellText"/>
+
+                                <!-- UPLOAD DATE -->
+                                <Text
+                                    text="{history>uploadDate}"
+                                    class="employeeDateText"/>
+
+                                <!-- TOTAL -->
+                                <ObjectNumber
+                                    number="{history>totalRecords}"
+                                    class="uploadHistoryCountTotal"/>
+
+                                <!-- SUCCESS -->
+                                <ObjectNumber
+                                    number="{history>successRecords}"
+                                    state="{history>statusState}"
+                                    class="uploadHistoryCountSuccess"/>
+
+                                <!-- FAILED -->
+                                <ObjectNumber
+                                    number="{history>failedRecords}"
+                                    emphasized="false"
+                                    class="uploadHistoryCountFailed"/>
+
+                                <!-- STATUS -->
+                                <ObjectStatus
+                                    text="{history>status}"
+                                    state="{history>statusState}"
+                                    inverted="true"
+                                    class="uploadHistoryStatusBadge"/>
+
+                            </ColumnListItem>
+
+                        </items>
+
+                    </Table>
+
+                </VBox>
+
+            </VBox>
+
+        </content>
+
+    </Page>
+
+</mvc:View>

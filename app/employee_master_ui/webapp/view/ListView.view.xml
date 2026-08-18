@@ -2,7 +2,8 @@
     controllerName="com.employee.employeemasterui.controller.ListView"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m"
-    xmlns:core="sap.ui.core">
+    xmlns:core="sap.ui.core"
+    xmlns:l="sap.ui.layout">
 
     <Page
         id="employeeListPage"
@@ -36,30 +37,6 @@
                             text="Manage employee master data"
                             class="employeePageSubtitle"/>
 
-                        <HBox
-                            alignItems="Center"
-                            class="employeeLiveStatus">
-
-                            <core:Icon
-                                src="sap-icon://circle-task-2"
-                                size="0.65rem"
-                                color="#188918"
-                                class="employeeLiveIcon"/>
-
-                            <Text
-                                text="Employee data"
-                                class="employeeLiveText"/>
-
-                            <Text
-                                text="•"
-                                class="employeeLiveSeparator"/>
-
-                            <Text
-                                text="Updated just now"
-                                class="employeeUpdatedText"/>
-
-                        </HBox>
-
                     </VBox>
 
 
@@ -77,11 +54,11 @@
                             class="employeeUploadButton"/>
 
                         <Button
-                            text="Refresh"
-                            icon="sap-icon://refresh"
-                            type="Transparent"
-                            press=".onRefresh"
-                            class="employeeRefreshButton"/>
+                            text="Upload History"
+                            icon="sap-icon://history"
+                            type="Ghost"
+                            press=".onUploadHistory"
+                            class="employeeHistoryButton"/>
 
                     </HBox>
 
@@ -95,48 +72,67 @@
                 <HBox
                     width="100%"
                     alignItems="Center"
+                    justifyContent="SpaceBetween"
                     class="employeeFilterBar">
 
-                    <SearchField
-                        id="employeeSearchField"
-                        width="420px"
-                        placeholder="Search Employee ID, name or email..."
-                        liveChange=".onSearch"
-                        class="employeeSearchField"/>
+                    <!-- Left: filters + count -->
+                    <HBox alignItems="Center" class="employeeFilterLeft">
 
-                    <Select
-                        id="departmentFilter"
-                        width="190px"
-                        selectedKey="ALL"
-                        change=".onDepartmentFilter"
-                        class="employeeDepartmentFilter">
+                        <SearchField
+                            id="employeeSearchField"
+                            width="340px"
+                            placeholder="Search Employee ID, name or email..."
+                            liveChange=".onSearch"
+                            class="employeeSearchField"/>
 
-                        <items>
-
-                            <core:Item
-                                key="ALL"
-                                text="All departments"/>
-
-                            <core:Item
-                                key="IT"
-                                text="IT"/>
+                        <Select
+                            id="departmentFilter"
+                            width="175px"
+                            selectedKey="ALL"
+                            change=".onDepartmentFilter"
+                            class="employeeDepartmentFilter"
+                            items="{
+                                path: 'depts>/items',
+                                templateShareable: false
+                            }">
 
                             <core:Item
-                                key="HR"
-                                text="HR"/>
+                                key="{depts>key}"
+                                text="{depts>text}"/>
+
+                        </Select>
+
+                        <Select
+                            id="managerFilter"
+                            width="175px"
+                            selectedKey="ALL"
+                            change=".onManagerFilter"
+                            class="employeeManagerFilter"
+                            items="{
+                                path: 'mgrs>/items',
+                                templateShareable: false
+                            }">
 
                             <core:Item
-                                key="Finance"
-                                text="Finance"/>
+                                key="{mgrs>key}"
+                                text="{mgrs>text}"/>
 
-                        </items>
+                        </Select>
 
-                    </Select>
+                        <Text
+                            id="employeeCountText"
+                            text=""
+                            class="employeeCountText"/>
 
-                    <Text
-                        id="employeeCountText"
-                        text=""
-                        class="employeeCountText"/>
+                    </HBox>
+
+                    <!-- Right: refresh -->
+                    <Button
+                        icon="sap-icon://refresh"
+                        type="Transparent"
+                        press=".onRefresh"
+                        tooltip="Refresh"
+                        class="employeeFilterRefreshBtn"/>
 
                 </HBox>
 
@@ -319,7 +315,7 @@
                                 <!-- MANAGER -->
 
                                 <Text
-                                    text="{rows>manager_managerId}"
+                                    text="{rows>manager_managerName}"
                                     class="employeeCellText"/>
 
 
@@ -351,6 +347,7 @@
                     </Table>
 
                 </VBox>
+
 
             </VBox>
 

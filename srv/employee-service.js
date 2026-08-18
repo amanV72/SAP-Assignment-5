@@ -466,6 +466,7 @@ class EmployeeService extends cds.ApplicationService {
             // --------------------------------------------------------
 
             return {
+                uploadId: uploadId,
                 totalRecords,
                 successRecords,
                 failedRecords,
