@@ -1,0 +1,226 @@
+.employeeListPage {
+    background: #f5f7fa;
+}
+
+.employeePageContainer {
+    padding: 28px 32px;
+    box-sizing: border-box;
+}
+
+
+/* ============================================================
+   PAGE HEADER
+   ============================================================ */
+
+.employeePageHeader {
+    margin-bottom: 24px;
+}
+
+.employeePageTitle {
+    color: #1d2d3e;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.employeePageSubtitle {
+    color: #5b6875;
+    font-size: 0.95rem;
+    margin-top: 4px;
+}
+
+.employeeLiveStatus {
+    margin-top: 10px;
+}
+
+.employeeLiveIcon {
+    margin-right: 6px;
+}
+
+.employeeLiveText {
+    color: #188918;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.employeeLiveSeparator {
+    margin: 0 7px;
+    color: #89919a;
+}
+
+.employeeUpdatedText {
+    color: #6a6d70;
+    font-size: 0.8rem;
+}
+
+
+/* ============================================================
+   HEADER ACTIONS
+   ============================================================ */
+
+.employeeHeaderActions {
+    gap: 10px;
+}
+
+.employeeUploadButton {
+    border-radius: 8px;
+}
+
+.employeeRefreshButton {
+    border-radius: 8px;
+}
+
+
+/* ============================================================
+   FILTER BAR
+   ============================================================ */
+
+.employeeFilterBar {
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+.employeeSearchField {
+    border-radius: 8px;
+}
+
+.employeeDepartmentFilter {
+    border-radius: 8px;
+}
+
+.employeeCountText {
+    color: #5b6875;
+    font-size: 0.85rem;
+    margin-left: 4px;
+}
+
+
+/* ============================================================
+   TABLE CARD
+   ============================================================ */
+
+.employeeTableCard {
+    background: #ffffff;
+    border: 1px solid #e1e5e9;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+
+/* ============================================================
+   TABLE
+   ============================================================ */
+
+.employeeTable {
+    background: #ffffff;
+}
+
+.employeeTable .sapMListTblHeaderCell {
+    background: #f8f9fa;
+    border-bottom: 1px solid #d9dfe3;
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
+.employeeColumnHeader {
+    color: #354a5f;
+    font-size: 0.78rem;
+    font-weight: 700;
+}
+
+.employeeTableRow {
+    min-height: 58px;
+}
+
+.employeeTableRow:hover {
+    background: #f5faff;
+}
+
+
+/* ============================================================
+   EMPLOYEE ID
+   ============================================================ */
+
+.employeeIdCell {
+    min-height: 45px;
+}
+
+.employeeIdText {
+    color: #0a6ed1;
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+
+/* ============================================================
+   TABLE TEXT
+   ============================================================ */
+
+.employeeCellText {
+    color: #1d2d3e;
+    font-size: 0.88rem;
+}
+
+.employeeEmailText {
+    color: #475e75;
+    font-size: 0.85rem;
+}
+
+.employeeDateText {
+    color: #475e75;
+    font-size: 0.85rem;
+}
+
+.employeeSalaryText {
+    color: #1d2d3e;
+    font-size: 0.88rem;
+}
+
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 900px) {
+
+    .employeePageContainer {
+        padding: 20px;
+    }
+
+    .employeePageHeader {
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    .employeeHeaderActions {
+        width: 100%;
+    }
+
+    .employeeFilterBar {
+        flex-wrap: wrap;
+    }
+
+    .employeeSearchField {
+        width: 100% !important;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .employeePageContainer {
+        padding: 14px;
+    }
+
+    .employeePageTitle {
+        font-size: 1.6rem;
+    }
+
+    .employeeHeaderActions {
+        justify-content: flex-start;
+    }
+
+    .employeeTableCard {
+        border-radius: 8px;
+    }
+}

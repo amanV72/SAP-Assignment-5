@@ -1,0 +1,361 @@
+<mvc:View
+    controllerName="com.employee.employeemasterui.controller.ListView"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+
+    <Page
+        id="employeeListPage"
+        showHeader="false"
+        class="employeeListPage">
+
+        <content>
+
+            <VBox
+                width="100%"
+                class="employeePageContainer">
+
+                <!-- ================================================= -->
+                <!-- PAGE HEADER                                      -->
+                <!-- ================================================= -->
+
+                <HBox
+                    width="100%"
+                    justifyContent="SpaceBetween"
+                    alignItems="Start"
+                    class="employeePageHeader">
+
+                    <VBox>
+
+                        <Title
+                            text="Employee Master"
+                            level="H1"
+                            class="employeePageTitle"/>
+
+                        <Text
+                            text="Manage employee master data"
+                            class="employeePageSubtitle"/>
+
+                        <HBox
+                            alignItems="Center"
+                            class="employeeLiveStatus">
+
+                            <core:Icon
+                                src="sap-icon://circle-task-2"
+                                size="0.65rem"
+                                color="#188918"
+                                class="employeeLiveIcon"/>
+
+                            <Text
+                                text="Employee data"
+                                class="employeeLiveText"/>
+
+                            <Text
+                                text="•"
+                                class="employeeLiveSeparator"/>
+
+                            <Text
+                                text="Updated just now"
+                                class="employeeUpdatedText"/>
+
+                        </HBox>
+
+                    </VBox>
+
+
+                    <!-- HEADER ACTIONS -->
+
+                    <HBox
+                        alignItems="Center"
+                        class="employeeHeaderActions">
+
+                        <Button
+                            text="Upload Excel"
+                            icon="sap-icon://upload"
+                            type="Emphasized"
+                            press=".onUploadExcel"
+                            class="employeeUploadButton"/>
+
+                        <Button
+                            text="Refresh"
+                            icon="sap-icon://refresh"
+                            type="Transparent"
+                            press=".onRefresh"
+                            class="employeeRefreshButton"/>
+
+                    </HBox>
+
+                </HBox>
+
+
+                <!-- ================================================= -->
+                <!-- SEARCH / FILTER BAR                               -->
+                <!-- ================================================= -->
+
+                <HBox
+                    width="100%"
+                    alignItems="Center"
+                    class="employeeFilterBar">
+
+                    <SearchField
+                        id="employeeSearchField"
+                        width="420px"
+                        placeholder="Search Employee ID, name or email..."
+                        liveChange=".onSearch"
+                        class="employeeSearchField"/>
+
+                    <Select
+                        id="departmentFilter"
+                        width="190px"
+                        selectedKey="ALL"
+                        change=".onDepartmentFilter"
+                        class="employeeDepartmentFilter">
+
+                        <items>
+
+                            <core:Item
+                                key="ALL"
+                                text="All departments"/>
+
+                            <core:Item
+                                key="IT"
+                                text="IT"/>
+
+                            <core:Item
+                                key="HR"
+                                text="HR"/>
+
+                            <core:Item
+                                key="Finance"
+                                text="Finance"/>
+
+                        </items>
+
+                    </Select>
+
+                    <Text
+                        id="employeeCountText"
+                        text=""
+                        class="employeeCountText"/>
+
+                </HBox>
+
+
+                <!-- ================================================= -->
+                <!-- TABLE CARD                                       -->
+                <!-- ================================================= -->
+
+                <VBox
+                    width="100%"
+                    class="employeeTableCard">
+
+                    <Table
+                        id="employeeTable"
+                        width="100%"
+                        inset="false"
+                        growing="true"
+                        growingThreshold="15"
+                        mode="None"
+                        fixedLayout="true"
+                        showSeparators="Inner"
+                        items="{rows>/filtered}"
+                        class="employeeTable">
+
+                        <columns>
+
+                            <!-- EMPLOYEE ID -->
+
+                            <Column
+                                width="12%"
+                                hAlign="Begin">
+
+                                <Text
+                                    text="Employee ID"
+                                    class="employeeColumnHeader"/>
+
+                            </Column>
+
+
+                            <!-- NAME -->
+
+                            <Column
+                                width="16%"
+                                hAlign="Begin">
+
+                                <Text
+                                    text="Employee Name"
+                                    class="employeeColumnHeader"/>
+
+                            </Column>
+
+
+                            <!-- EMAIL -->
+
+                            <Column
+                                width="20%"
+                                hAlign="Begin">
+
+                                <Text
+                                    text="Email"
+                                    class="employeeColumnHeader"/>
+
+                            </Column>
+
+
+                            <!-- DEPARTMENT -->
+
+                            <Column
+                                width="12%"
+                                hAlign="Begin">
+
+                                <Text
+                                    text="Department"
+                                    class="employeeColumnHeader"/>
+
+                            </Column>
+
+
+                            <!-- MANAGER -->
+
+                            <Column
+                                width="12%"
+                                hAlign="Begin">
+
+                                <Text
+                                    text="Manager"
+                                    class="employeeColumnHeader"/>
+
+                            </Column>
+
+
+                            <!-- JOINING DATE -->
+
+                            <Column
+                                width="11%"
+                                hAlign="Begin">
+
+                                <Text
+                                    text="Joining Date"
+                                    class="employeeColumnHeader"/>
+
+                            </Column>
+
+
+                            <!-- SALARY -->
+
+                            <Column
+                                width="10%"
+                                hAlign="End">
+
+                                <Text
+                                    text="Salary"
+                                    class="employeeColumnHeader"/>
+
+                            </Column>
+
+
+                            <!-- LOCATION -->
+
+                            <Column
+                                width="10%"
+                                hAlign="Begin">
+
+                                <Text
+                                    text="Location"
+                                    class="employeeColumnHeader"/>
+
+                            </Column>
+
+                        </columns>
+
+
+                        <!-- ================================================= -->
+                        <!-- ROWS                                             -->
+                        <!-- ================================================= -->
+
+                        <items>
+
+                            <ColumnListItem
+                                type="Navigation"
+                                press=".onEmployeePress"
+                                class="employeeTableRow">
+
+
+                                <!-- EMPLOYEE ID -->
+
+                                <VBox
+                                    justifyContent="Center"
+                                    class="employeeIdCell">
+
+                                    <Text
+                                        text="{rows>employeeId}"
+                                        class="employeeIdText"/>
+
+                                </VBox>
+
+
+                                <!-- EMPLOYEE NAME -->
+
+                                <Text
+                                    text="{rows>employeeName}"
+                                    class="employeeCellText"/>
+
+
+                                <!-- EMAIL -->
+
+                                <Text
+                                    text="{rows>email}"
+                                    wrapping="false"
+                                    class="employeeEmailText"/>
+
+
+                                <!-- DEPARTMENT -->
+
+                                <Text
+                                    text="{rows>department_departmentName}"
+                                    class="employeeCellText"/>
+
+
+                                <!-- MANAGER -->
+
+                                <Text
+                                    text="{rows>manager_managerId}"
+                                    class="employeeCellText"/>
+
+
+                                <!-- JOINING DATE -->
+
+                                <Text
+                                    text="{rows>joiningDate}"
+                                    class="employeeDateText"/>
+
+
+                                <!-- SALARY -->
+
+                                <ObjectNumber
+                                    number="{rows>salary}"
+                                    unit="INR"
+                                    class="employeeSalaryText"/>
+
+
+                                <!-- LOCATION -->
+
+                                <Text
+                                    text="{rows>location}"
+                                    class="employeeCellText"/>
+
+                            </ColumnListItem>
+
+                        </items>
+
+                    </Table>
+
+                </VBox>
+
+            </VBox>
+
+        </content>
+
+    </Page>
+
+</mvc:View>

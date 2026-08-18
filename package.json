@@ -1,0 +1,30 @@
+{
+  "name": "employee_master_excel_upload_system",
+  "version": "1.0.0",
+  "dependencies": {
+    "@sap/cds": "^9",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "@cap-js/sqlite": "^2.4",
+    "cds-plugin-ui5": "^0.17.0"
+  },
+  "scripts": {
+    "start": "cds-serve",
+    "watch-employee_master_ui": "cds watch --open com.employee.employeemasterui/index.html?sap-ui-xx-viewCache=false --livereload false"
+  },
+  "private": true,
+  "cds": {
+    "requires": {
+      "db": {
+        "kind": "sqlite"
+      }
+    }
+  },
+  "workspaces": [
+    "app/*"
+  ],
+  "sapux": [
+    "app/employee_master_ui"
+  ]
+}

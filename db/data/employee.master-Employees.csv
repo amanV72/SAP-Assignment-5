@@ -1,0 +1,11 @@
+employeeId,employeeName,email,department_departmentName,manager_managerId,joiningDate,salary,location,createdAt,createdBy,modifiedAt,modifiedBy
+EMP001,Rahul Sharma,rahul@company.com,IT,MGR001,2022-06-15,850000,Pune,2026-08-18T09:00:00Z,system,2026-08-18T09:00:00Z,system
+EMP002,Priya Singh,priya@company.com,HR,MGR002,2021-04-20,720000,Mumbai,2026-08-18T09:00:00Z,system,2026-08-18T09:00:00Z,system
+EMP003,Amit Kumar,amit@company.com,IT,MGR001,2023-01-10,650000,Pune,2026-08-18T09:00:00Z,system,2026-08-18T09:00:00Z,system
+EMP004,Neha Joshi,neha@company.com,Finance,MGR003,2020-11-05,950000,Bangalore,2026-08-18T09:00:00Z,system,2026-08-18T09:00:00Z,system
+EMP005,Rohit Verma,rohit@company.com,IT,MGR001,2024-02-12,580000,Hyderabad,2026-08-18T09:00:00Z,system,2026-08-18T09:00:00Z,system
+EMP006,Anjali Desai,anjali@company.com,HR,MGR002,2022-09-18,680000,Pune,2026-08-18T09:00:00Z,system,2026-08-18T09:00:00Z,system
+EMP007,Vikram Shah,vikram@company.com,Finance,MGR003,2019-07-22,1200000,Mumbai,2026-08-18T09:00:00Z,system,2026-08-18T09:00:00Z,system
+EMP008,Karan Mehta,karan@company.com,IT,MGR004,2023-08-14,750000,Pune,2026-08-18T09:00:00Z,system,2026-08-18T09:00:00Z,system
+EMP009,Pooja Patil,pooja@company.com,HR,MGR002,2021-12-01,630000,Nashik,2026-08-18T09:00:00Z,system,2026-08-18T09:00:00Z,system
+EMP010,Arjun Rao,arjun@company.com,Finance,MGR005,2024-01-08,880000,Pune,2026-08-18T09:00:00Z,system,2026-08-18T09:00:00Z,system
